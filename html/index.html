@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plantas</title>
+    <title>Raíces de las sierras</title>
     <link  rel="stylesheet" href="../css/style.css " />
     <link
   href="https://fonts.googleapis.com/css2?
@@ -15,14 +15,15 @@
   rel="stylesheet">
 </head>
 <body>  
-   <header class="header">
+<header class="header">
     <div class="header__logo">Raices de las sierras</div>
     <nav class="header__nav">
-      <a href="#inicio" class="nav__link">Inicio</a>
-      <a href="#nosotros" class="nav__link">Sobre Nosotros</a>
+      <a href="index.html" class="nav__link">Inicio</a>
+      <a href="especies.html" class="nav__link">Especies</a>
+      <a href="nosotros.html" class="nav__link">Sobre Nosotros</a>
       <a href="#contacto" class="nav__link">Contacto</a>
     </nav>
-  </header>
+</header>
 <section class="presentacion">
   <div class="contenedor-presentacion">
     <button id="prev-btn" class="arrow-btn">🡰</button>
@@ -40,49 +41,150 @@
   </div>
 </section>
 <!-- HASTA ACA PRIMERA SECCION -->
-<section class="plantas-seccion">
-  <h2 class="titulo-plantas">Nuestros productos</h2>
-  <div class="contenedor-plantas">
-    <div class="carrusel-plantas">
-      <button id="prevBtn3">🡰</button>
-      <div class="plantas-contenido" id="plantasContenido"></div>
-      <button id="nextBtn3">🡲</button>
+<section class="servicios-seccion">
+  <div class="servicios-wrap">
+    <header class="servicios-header">
+      <h2>Servicios forestales & paisajismo</h2>
+      <p>
+        Planificación de proyectos, asesoramiento integral y diseño paisajístico
+        adaptados a tu campo, parque o arbolado urbano.
+      </p>
+    </header>
+
+    <div class="servicios-grid">
+      <article class="servicio-card">
+        
+        <h3>Monte comercial</h3>
+        <p>
+          Plantaciones para producción de madera, leña y otros
+          productos forestales.
+        </p>
+      </article>
+
+      <article class="servicio-card">
+      
+        <h3>Montes de abrigo</h3>
+        <p>
+          Barreras vegetales para proteger ganado y cultivos frente a
+          vientos y lluvias.
+        </p>
+      </article>
+
+      <article class="servicio-card">
+        <h3>Cortinas forestales</h3>
+        <p>
+          Plantadas con eel proposito de velocidad del viento, bajar la
+          erosión del suelo y proteger cultivos.
+        </p>
+      </article>
+
+      <article class="servicio-card">
+       
+        <h3>Asesoramiento integral</h3>
+        <p>
+          Elección de especies según <em>estudio de suelo</em> y
+          condiciones edafoclimáticas. Seguimiento del proyecto y
+          post-venta para asegurar resultados.
+        </p>
+      </article>
+
+      <article class="servicio-card">
+        
+        <h3>Proyectos paisajísticos, urbanisticos y rural</h3>
+        <p>
+          Diseño y ejecución de áreas verdes basados en la estetica elegida por el cliente 
+          asesoramiento en eleccionn de especies.
+        </p>
+      </article>
+    </div>
+
+    <div class="servicios-cta">
+      <a class="btn-primario" href="/contacto">Consultanos</a>
+      
     </div>
   </div>
 </section>
 
+
 <!-- HASTA ACA SEGUNDA SECCION -->
-<section class="asesoramiento-parquizaciones-seccion">
-  <aside class="sidebarA">
-    <div class="tituloA">ASESORAMIENTO INTEGRAL DE SERVICIOS FORESTALES</div>
-    <div class="listadoA">
-    <ul>
-    <li>Forestaciones comerciales</li>
-    <li>Montes de calidad</li>
-    <li>Cortinas forestales</li>
-    <li>Montes de abrigo</li>
-    <li>Diseño y proyecto</li>
-    <li>Visitas al campo</li>
-    <li>Elección de especies</li>
-    <li>Ventas de ejemplares arbóreos y arbustivos</li>
-    <li>Servicio post-venta: Seguimiento de plantación</li>
-    <li>Cuidados culturales</li>
-    </ul>
+<section class="seccion-especies">
+  <div class="especies__bg"></div>
+
+  <div class="especies__wrap">
+    <header class="especies__header">
+      <h2>Especies & Producción</h2>
+      <p>
+        Produtores de salicacias con clones identificados y certificados.
+        <br>Vivero productor de plantas de sombra y forestales varias.
+        <br>Variedad de especies arbustibas y de ornamento adaptadas a cada condicon de suelo y clima.
+      </p>
+      <ul class="especies__chips" aria-label="Aplicaciones">
+        <li>Arbolado urbano</li>
+        <li>Parques</li>
+        <li>Campos</li>
+      </ul>
+    </header>
+
+    <!-- Modalidades de venta -->
+    <section class="venta">
+      <article class="venta__card">
+        <h3>Ejemplares en terrón</h3>
+      
+      </article>
+      <article class="venta__card">
+        <h3>Ejemplares a Raíz desnuda</h3>
+       
+      </article>
+    </section>
+
+    <!-- Historias / bloques cortos -->
+    <section class="historias">
+      <article class="historia">
+        <h4>Nuestras especies:</h4>
+        <p>
+          Contamos con clones de especies identificadas y certificadas para
+          arbolado urbano, parques y campos, seleccionados según condiciones edafoclimáticas.
+        </p>
+      </article>
+
+      <article class="historia">
+        <h4>Arbolado urbano</h4>
+        <ul class="historia__lista">
+          <li>Fresno </li>
+          <li>Plátano </li>
+          <li>Tilo </li>
+        </ul>
+      </article>
+
+      <article class="historia">
+        <h4>Parques</h4>
+        <ul class="historia__lista">
+          <li>Variedad de robles</li>
+          <li>Liquidámbar </li>
+          <li>Jacarandá </li>
+        </ul>
+      </article>
+
+      <article class="historia">
+        <h4>Campos</h4>
+        <ul class="historia__lista">
+          <li>Álamo </li>
+          <li>Sauce </li>
+          <li>Casuarina </li>
+          <li>Variedad de eucaliptos </li>
+          <li>Variedad de acacias(Blanca y melanoxilon) </li>
+          <li>Otras</li>
+        </ul>
+      </article>
+    </section>
+
+    <div class="especies__cta">
+      <a class="btn-primario" href="/especies">Mas informacion</a>
+       <a class="btn-primario" href="/contacto">Consulta por más especies</a>
     </div>
-  </aside>
-  <aside class="sidebarB">
-    <div class="tituloB">ASESORAMIENTO INTEGRAL PARQUIZACIONES</div>
-    <div class="listadoB">
-    <ul>
-      <li>Elección de especies</li>
-      <li>Diseño y proyecto</li>
-      <li>Ventas de ejemplares arbóreos y arbustivos</li>
-      <li>Servicio post-venta</li>
-      <li>Seguimiento de plantación</li>
-    </ul> 
-    </div>
-  </aside>
+  </div>
 </section>
+
   <!-- HASTA ACA tercera SECCION -->
 <section class="valores-seccion">
   <div class="valores-container">
@@ -117,7 +219,7 @@
   <div class="footer-container">
 
     <div class="footer-logo">
-      <img src="../fondo-bosque1.jpg" alt="Raíces de las Sierras Logo" />
+      <img src="../Logo Raíces.png" alt="Raíces de las Sierras Logo" />
     </div>
 
     <div class="footer-contacto">
@@ -137,6 +239,7 @@
         <img src="../icono-facebook-svg.svg" alt="Facebook" />
         <span>Facebook</span>
       </a>
+      <br>
     </div>
 
     <div class="footer-extra">

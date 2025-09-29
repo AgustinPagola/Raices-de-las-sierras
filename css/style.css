@@ -17,7 +17,7 @@
 /*BODY INICIAL MOMENTANEO, A CAMBIAR*/
 
 body {
-  margin: 0% auto;
+  margin: 0 auto;
   font-family: 'Lato', 'Open Sans', sans-serif;
   color: #2E7D32; 
   background-color: var;
@@ -57,7 +57,19 @@ body {
   flex-wrap: wrap; 
   margin-right: 3%;
 }
-
+.header__imagen img{
+  display: block;
+  max-height: 56px;   /* límite del logo */
+  width: auto;
+  object-fit: contain;
+  margin-right: 12px; /* margen lateral */
+}
+.header__separador {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
 .nav__link {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.9); /* blanco transparente */
@@ -378,58 +390,130 @@ body {
 }
 
 
-/*ASESORIAMIENTO PARQUIZACIONES SECCION*/
-.asesoramiento-parquizaciones-seccion {
-  display: flex;
+/* Contenedor general con fondo (puede aprovechar tu animación 'viento' si ya existe) */
+.seccion-especies {
+  position: relative;
   width: 100%;
-  height: 50vh;
+  overflow: hidden;
+  padding: 90px 0 60px; /* margen superior para no chocar con header fijo */
+  background: #1b1f1b; /* color de respaldo si no carga la imagen */
+  color: #fff;
+}
+
+.especies__bg {
+  position: absolute;
+  inset: 0;
   background-image: url(../fondo-seccion-parquizaciones.png);
-  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
-  animation: viento 10s linear infinite;
-  padding-top: 100px;
-  
-}
-.sidebarA {
-  width: 50%;
-  padding: 20px;
-  box-sizing: border-box;
-  justify-content: center;
-  padding-left: 10%;
+  background-position: center;
+  opacity: 0.35;               /* oscurezco para mejorar legibilidad */
+  animation: viento 10s linear infinite; /* si ya tenés @keyframes viento */
+  pointer-events: none;
 }
 
-.sidebarB {
-  width: 50%;
-  padding: 20px;
-  box-sizing: border-box;
-  padding-left: 10%;
+.especies__wrap {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 22px;
 }
 
-.tituloA,
-.tituloB {
-  color: white;
-  font-weight: bold;
-  font-style: italic;
-  font-size: 26px;
-  margin-bottom: 25px;
-  
+/* Header */
+.especies__header h2 {
+  font-size: 32px;
+  line-height: 1.15;
+  margin: 0 0 10px;
+  font-weight: 800;
 }
 
-.listadoA ul,
-.listadoB ul {
-  
+.especies__header p {
+  font-size: 16px;
+  max-width: 850px;
+  margin: 0 0 16px;
+}
+
+.especies__chips {
+  display: flex;
+  gap: 10px;
+  list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 14px 0 28px;
+  flex-wrap: wrap;
+}
+.especies__chips li {
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  backdrop-filter: blur(2px);
 }
 
-.listadoA li,
-.listadoB li {
-  color: white;
-  font-weight: normal;
+/* Cards de venta */
+.venta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 26px;
+}
+.venta__card {
+  background: rgba(0,0,0,.25);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 14px;
+  padding: 18px;
+}
+.venta__card h3 {
+  font-size: 20px;
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+
+/* Historias */
+.historias {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 10px;
+}
+.historia {
+  background: rgba(0,0,0,.25);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 14px;
+  padding: 18px;
+  min-height: 160px;
+}
+.historia h4 {
+  margin: 0 0 8px;
   font-size: 18px;
-  margin-bottom: 14px;
-  
+  font-weight: 700;
+}
+.historia__lista {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+/* CTA */
+.especies__cta {
+  margin-top: 26px;
+  display: flex;
+  gap: 14px;   /* separación entre botones */
+  flex-wrap: wrap; /* para que en mobile bajen uno debajo del otro */
+}
+.btn-primario {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: #e7f18a; /* cambiá si querés matchear tu paleta */
+  color: #1b1f1b;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.btn-primario:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
 }
 
 /*SECCION VENTA DE PLANTAS*/
@@ -548,11 +632,193 @@ body {
   display: none;
 }
 
-/* Mostrar texto a partir de pantallas medianas */
-@media (min-width: 768px) {
-  .whatsapp-texto {
-    display: inline;
-  }
+/*APARTADO ESPECIES*/
+.especies-info {
+  position: relative;
+  width: 100%;
+  padding: 90px 0 60px;
+  color: #000;
+}
+
+.info__wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+/* Intro */
+.info__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.info__header h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+.info__header p {
+  font-size: 16px;
+  max-width: 850px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Cards */
+.info__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+}
+.info__card {
+  background: rgba(34, 79, 57, 0.85); 
+  border: none;                       
+  border-radius: 14px;
+  padding: 24px;
+  min-height: 220px;
+  transition: transform .2s ease, box-shadow .2s ease;
+  color: #000;                        
+}
+
+.info__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+
+.info__card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #000; 
+}
+
+.info__card p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #000; 
+}
+
+/* CONSULTANOS ESPECIES */
+.info__cta {
+  text-align: center;
+  margin-top: 20px;
+}
+.info__cta p {
+  margin-bottom: 16px;
+  font-size: 16px;
+  color:#000;
+}
+.btn-primario {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: #e7f18a;
+  color: #1b1f1b;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+.btn-primario:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* ====== Servicios ====== */
+.servicios-seccion {
+  width: 100%;
+  padding: 60px 0 20px;
+  background: #fff;
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.servicios-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+.servicios-header h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #224F39;
+  margin-bottom: 8px;
+}
+.servicios-header p {
+  margin-bottom: 24px;
+  max-width: 850px;
+  line-height: 1.55;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.servicio-card {
+  background: rgba(34, 79, 57, 0.85);
+  color: white;
+  border-radius: 14px;
+  padding: 18px 20px 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+  transition: transform .15s ease, box-shadow .15s ease;
+  position: relative;
+}
+
+.servicio-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.20);
+}
+
+.servicio-card h3 {
+  margin: 12px 0 8px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.servicio-card p {
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.servicio-ico {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e7f18a;
+  font-size: 20px;
+  position: absolute;
+  top: 14px;
+  left: 14px;
+}
+
+
+
+.servicios-cta {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.btn-secundario {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid #224F39;
+  background: #fff;
+  color: #224F39;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn-secundario:hover {
+  transform: translateY(-1px);
+  background: #f4f8ea;
+}
+
 
  
 
@@ -619,20 +885,7 @@ body {
   color: #333;
 }
 
-/* Responsive para móviles */
-@media (max-width: 768px) {
-  .valores-container {
-    flex-direction: column;
-  }
-  .valores-imagen, .valores-textos {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-  .valores-textos {
-    grid-template-columns: 1fr;
-  }
-}
- 
+
 
 
 /*FOOTER*/
@@ -779,7 +1032,7 @@ body {
 .intro .subtitulo {
   font-size: 1.2rem;
   font-style: italic;
-  color: brown;
+
 }
 
 .reseña {
@@ -795,11 +1048,7 @@ body {
   gap: 2rem;
 }
 
-@media (min-width: 768px) {
-  .mision-vision {
-    flex-direction: row;
-  }
-}
+
 
 .card {
   background: #fff;
@@ -821,7 +1070,236 @@ body {
   color: #444;
   line-height: 1.6;
 }
-
-
-
+/* ===== EQUIPO DE TRABAJO ===== */
+.equipo {
+  background: #fff;
+  color: #000;
+  padding: 60px 22px 40px;
+  font-family: 'Open Sans', sans-serif;
 }
+.equipo__titulo {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 26px;
+  color: #224F39;
+}
+
+.equipo-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 70px 100px;
+}
+
+/* Tarjeta horizontal: imagen a la izquierda, texto a la derecha */
+.miembro{
+  display: grid;
+  grid-template-columns: 260px 1fr; /* foto fija + texto flexible */
+  align-items: start;
+  gap: 28px;
+}
+
+.miembro__foto{
+  width: 260px;              /* ancho real del marco */
+  min-width: 260px;          /* evita que se encoja y pise el texto */
+  aspect-ratio: 3 / 4;
+  margin: 0;                 /* por si el navegador agrega margen al <figure> */
+  position: relative;
+  z-index: 0;                /* capa por debajo del texto */
+  box-sizing: border-box;    /* bordes incluidos en el ancho */
+}
+.miembro__texto{
+  position: relative;
+  z-index: 1;
+}
+.miembro__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.miembro__foto figcaption {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  pointer-events: none;
+}
+
+/* Texto */
+.miembro__texto h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #2E7D32;
+}
+.miembro__texto p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* Interacciones suaves */
+.miembro__foto img { transition: transform .25s ease; }
+.miembro:hover .miembro__foto img { transform: scale(1.03); }
+
+/* APARTADO CONTACTO */
+
+/* Sección */
+.seccion-consultas {
+  position: relative;
+  width: 100%;
+  padding: 90px 0 60px;
+  color: #000000;
+  background: #ffffff; /* sección blanca */
+}
+
+.contenedor-consultas {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+/* Encabezado */
+.encabezado-consultas {
+  text-align: center;
+  margin-bottom: 34px;
+}
+.titulo-consultas {
+  font-size: clamp(26px, 2.6vw, 36px);
+  font-weight: 900;
+  margin: 0 0 8px 0;
+}
+.subtitulo-consultas {
+  margin: 0;
+  font-size: 16px;
+  opacity: .9;
+}
+
+/* Grilla */
+.grilla-consultas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-bottom: 10px;
+}
+@media (max-width: 960px) {
+  .grilla-consultas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .grilla-consultas { grid-template-columns: 1fr; }
+}
+
+/* Tarjetas (renovadas y centradas) */
+.tarjeta-consulta {
+  background: rgba(34, 79, 57, 0.92); /* verde más sólido para contraste */
+  border: none;
+  border-radius: 16px;
+  padding: 28px 24px;
+  min-height: 280px; /* más altas para “llenar” */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* reparte icono/texto/cta */
+  gap: 12px;
+  transition: transform .2s ease, box-shadow .2s ease;
+  color: #ffffff; /* texto claro para legibilidad */
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+}
+.tarjeta-consulta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.24);
+}
+
+/* Partes internas */
+.tarjeta-consulta__icono {
+  font-size: 44px;
+  line-height: 1;
+  margin-top: 2px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.18));
+}
+.tarjeta-consulta__titulo {
+  font-size: 22px;
+  margin: 4px 0 2px 0;
+  color: #ffffff;
+  font-weight: 800;
+}
+.tarjeta-consulta__descripcion {
+  font-size: 15.5px;
+  line-height: 1.5;
+  margin: 0;
+  opacity: .95;
+  color: #f2f7f4;
+}
+.tarjeta-consulta__dato {
+  font-size: 16px;
+  margin: 6px 0 0 0;
+  color: #e9f5ef;
+  text-decoration: none;
+}
+
+/* Enlace dentro del dato (correo) */
+.enlace-correo-consultas {
+  color: #e9f5ef;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.enlace-correo-consultas:hover { opacity: .9; }
+
+/* Botón/acciones */
+.tarjeta-consulta__acciones {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.tarjeta-consulta__boton {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #e7f18a;
+  color: #1b1f1b;
+  font-weight: 800;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+  cursor: pointer;
+}
+.tarjeta-consulta__boton:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* Tarjeta clickeable completa (se mantiene para compatibilidad con tu JS) */
+.tarjeta-consulta--enlace { cursor: pointer; }
+
+/* Botón “Copiar” (Gmail) */
+.boton-copiar-consultas {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #e7f18a;
+  color: #1b1f1b;
+  font-weight: 800;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+  cursor: pointer;
+}
+.boton-copiar-consultas:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+
+
+
+
