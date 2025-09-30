@@ -7,18 +7,29 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="header__separador">
-      <div class="header__imagen"><img src="../Icono Logo.png" alt="raices"></div>
-      <div class="header__logo">Raices de las sierras</div>
+<header class="header" id="site-header">
+  <div class="header__separador">
+    <button class="header__toggle" id="menu-toggle"
+            aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menú">
+      <!-- ícono hamburguesa (SVG) -->
+      <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="header__imagen">
+      <img src="../Icono Logo.png" alt="Raíces de las Sierras" />
     </div>
-    <nav class="header__nav">
-      <a href="index.html" class="nav__link">Inicio</a>
-      <a href="especies.html" class="nav__link">Especies</a>
-      <a href="nosotros.html" class="nav__link">Sobre Nosotros</a>
-      <a href="contacto.html" class="nav__link">Contacto</a>
-    </nav>
-  </header> 
+    <div class="header__logo">Raices de las sierras</div>
+  </div>
+
+  <nav class="header__nav" id="primary-nav">
+    <a href="index.html" class="nav__link">Inicio</a>
+    <a href="especies.html" class="nav__link">Especies</a>
+    <a href="nosotros.html" class="nav__link">Sobre Nosotros</a>
+    <a href="contacto.html" class="nav__link">Contacto</a>
+  </nav>
+</header>
 <section class="seccion-consultas">
   <div class="contenedor-consultas">
 
@@ -89,7 +100,6 @@
           </a>
         </p>
         <div class="tarjeta-consulta__acciones">
-          <a class="tarjeta-consulta__boton" href="mailto:contacto@raicesdelassierras.com">Enviar correo</a>
           <button class="boton-copiar-consultas" id="boton-copiar-consultas" type="button">Copiar</button>
         </div>
       </article>

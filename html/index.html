@@ -15,14 +15,28 @@
   rel="stylesheet">
 </head>
 <body>  
-<header class="header">
+<header class="header" id="site-header">
+  <div class="header__separador">
+    <button class="header__toggle" id="menu-toggle"
+            aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menú">
+      <!-- ícono hamburguesa (SVG) -->
+      <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="header__imagen">
+      <img src="../Icono Logo.png" alt="Raíces de las Sierras" />
+    </div>
     <div class="header__logo">Raices de las sierras</div>
-    <nav class="header__nav">
-      <a href="index.html" class="nav__link">Inicio</a>
-      <a href="especies.html" class="nav__link">Especies</a>
-      <a href="nosotros.html" class="nav__link">Sobre Nosotros</a>
-      <a href="#contacto" class="nav__link">Contacto</a>
-    </nav>
+  </div>
+
+  <nav class="header__nav" id="primary-nav">
+    <a href="index.html" class="nav__link">Inicio</a>
+    <a href="especies.html" class="nav__link">Especies</a>
+    <a href="nosotros.html" class="nav__link">Sobre Nosotros</a>
+    <a href="contacto.html" class="nav__link">Contacto</a>
+  </nav>
 </header>
 <section class="presentacion">
   <div class="contenedor-presentacion">
@@ -73,7 +87,7 @@
       <article class="servicio-card">
         <h3>Cortinas forestales</h3>
         <p>
-          Plantadas con eel proposito de velocidad del viento, bajar la
+          Plantadas con el proposito de reducir la velocidad del viento, bajar la
           erosión del suelo y proteger cultivos.
         </p>
       </article>
@@ -93,7 +107,7 @@
         <h3>Proyectos paisajísticos, urbanisticos y rural</h3>
         <p>
           Diseño y ejecución de áreas verdes basados en la estetica elegida por el cliente 
-          asesoramiento en eleccionn de especies.
+          asesoramiento en elección de especies.
         </p>
       </article>
     </div>

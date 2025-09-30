@@ -1,12 +1,9 @@
-const header = document.querySelector(".header");
+const toggleBtn = document.getElementById('menu-toggle');
+const header = document.getElementById('site-header');
+const nav = document.getElementById('primary-nav');
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    header.classList.add("header--scrolled");
-  } else {
-    header.classList.remove("header--scrolled");
-  }
-});
-window.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('.header').classList.add('visible');
+toggleBtn.addEventListener('click', () => {
+  const abierto = header.classList.toggle('is-open');
+  toggleBtn.setAttribute('aria-expanded', abierto);
+  document.body.classList.toggle('no-scroll', abierto); // opcional, bloquea scroll
 });

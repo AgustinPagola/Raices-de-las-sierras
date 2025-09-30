@@ -5,6 +5,7 @@
     const descripcion = animWrap.querySelector('.descripcion-presentacion');
     const prevBtn  = document.getElementById('prev-btn');
     const nextBtn  = document.getElementById('next-btn');
+    const slide = document.querySelector('.texts-wrap');
 
     const versiones = [
       {
@@ -68,5 +69,35 @@
       aplicarVersion(actual);
       reiniciarIntervalo();
     });
+        let startX = 0;
+    let endX = 0;
+
+    slide.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    slide.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const threshold = 50; // Mínima distancia para considerar un swipe
+      const deltaX = endX - startX;
+
+      if (Math.abs(deltaX) > threshold) {
+        if (deltaX < 0) {
+          // Swipe izquierda → siguiente versión
+          actual = (actual + 1) % versiones.length;
+          aplicarVersion(actual);
+          reiniciarIntervalo();
+        } else {
+          // Swipe derecha → versión anterior
+          actual = (actual - 1 + versiones.length) % versiones.length;
+          aplicarVersion(actual);
+          reiniciarIntervalo();
+        }
+      }
+    }
   });
 
