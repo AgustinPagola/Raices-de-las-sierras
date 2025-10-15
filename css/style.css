@@ -445,22 +445,34 @@ section,
 }
 
 /* venta */
-.venta{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
-  margin-bottom:26px;
+
+/* Etiquetas de formatos */
+.formatos-etiquetas{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 24px auto;
+  padding: 10px 0;
 }
-.venta__card{
-  background: rgba(0,0,0,.25);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:14px;
-  padding:18px;
+
+.etiqueta-formato{
+  display: inline-block;
+  background: rgba(34,79,57,0.85);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  user-select: none;
+ 
 }
-.venta__card h3{
-  font-size:20px;
-  margin:0 0 6px;
-  font-weight:700;
+
+.etiqueta-formato:hover{
+  background: rgba(231,241,138,0.6);
+  transform: translateY(-1px);
 }
 
 /* historias */
@@ -839,56 +851,55 @@ section,
   width:min(100% - 2*var(--gap), var(--container));
   margin-inline:auto;
 }
-.miembro{
-  display:grid;
+.equipo-grid--circulos{
+  display: grid;
   grid-template-columns: 1fr;
-  gap:14px;
-  align-items:start;
+  gap: 28px;
+  width: min(100% - 2*var(--gap), var(--container));
+  margin-inline: auto;
+  align-items: start;
+  justify-items: center;
 }
-.miembro__foto{
-  width:100%;
-  aspect-ratio: 3/4;
-  margin:0;
-  position:relative;
-  z-index:0;
+
+/* Item centrado */
+.miembro--circulo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
 }
-.miembro__texto{
-  position:relative;
-  z-index:1;
+
+/* Foto circular */
+.miembro--circulo .miembro__foto{
+  width: 160px;
+  height: 160px;
+  margin: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+  border: 3px solid rgba(34,79,57,.15);
 }
-.miembro__foto img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-.miembro__foto figcaption{
-  position:absolute;
-  inset:0;
-  display:grid;
-  place-items:center;
-  font-size:14px;
-  color:#666;
-  font-style:italic;
-  pointer-events:none;
-}
-.miembro__texto h3{ 
-  margin:0 0 6px;
-  font-size:20px;
-  font-weight:800;
-  color:#2E7D32;
-}
-.miembro__texto p{
-  margin:0;
-  line-height:1.6;
-  font-size:15px;
-}
-.miembro__foto img{
+
+.miembro--circulo .miembro__foto img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   transition: transform .25s ease;
 }
-.miembro:hover .miembro__foto img{
-  transform: scale(1.03);
+.miembro--circulo:hover .miembro__foto img{ transform: scale(1.03); }
+
+/* Nombre */
+.miembro__nombre{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--verde-oscuro);
 }
+
+/* (opcional) borde destaca al hover */
+.miembro--circulo:hover .miembro__foto{ border-color: #e7f18a; }
 
 /* =========================================================
    CONTACTO — tarjetas
@@ -1180,7 +1191,7 @@ section,
     grid-template-columns: repeat(2, 1fr);
   }
   .info__cards{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
   }
   .valores-textos{
     grid-template-columns: repeat(2, 1fr);
@@ -1191,6 +1202,10 @@ section,
   .especies__bg{
   animation:viento 45s linear infinite;
 }
+  .equipo-grid--circulos{ 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
 }
 
 /* ≥ 768px */
@@ -1214,17 +1229,7 @@ section,
   .valores-imagen{
     height: 300px;
   }
-  .equipo-grid{
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-  }
-  .miembro{
-    grid-template-columns: 260px 1fr;
-  }
-  .miembro__foto{
-    width: 260px;
-    min-width: 260px;
-  }
+  
   .especies__bg{
   animation:viento 30s linear infinite;
 }
@@ -1296,11 +1301,19 @@ section,
 
   /* Especies */
   .historias{
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .info__cards{
+      
     grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+  
   }
+  
+    .info__cards{
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    justify-content: center;
+    max-width: 980px;              /* opcional para que no se estiren de más */
+    margin-inline: auto;
+  }
+  
   .servicios-grid{
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1321,12 +1334,13 @@ section,
     grid-template-columns: repeat(2, 1fr);
     gap: 30px 50px;
   }
-
-  /* Equipo */
-  .equipo-grid{
-    gap: 70px 100px;
+   .equipo-grid--circulos{
+    grid-template-columns: repeat(3, 1fr);
   }
-
+  .miembro--circulo .miembro__foto{
+    width: 190px;
+    height: 190px;
+  }
   /* Footer en fila */
   .footer-container{
     display: flex;
@@ -1341,5 +1355,5 @@ section,
   .especies__bg{
   animation:viento 10s linear infinite;
 }
-}
 
+}
